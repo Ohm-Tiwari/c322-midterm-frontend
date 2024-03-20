@@ -6,6 +6,7 @@
   <title>Document</title>
   <link rel="stylesheet" href="navbar.css">
   <link rel="stylesheet" href="general.css">
+  <link rel="stylesheet" href="quiz.css">
 </head>
 <body>
   <ul class="topnav">
@@ -15,6 +16,27 @@
     <li><a href="take-a-quiz.html">Take a quiz</a></li>
     <li class="right"><a href="#about">About</a></li>
   </ul>
+
+  <div class="newQuiz">
+    <h><b>The New Quiz(0 Questions)</b></h>
+  <br>
+  <br>
+  <label for="quizTitle">Quiz Title:</label>
+  <input type="text" id="quizTitle" name="quizTitle"><br><br>
+  <input type="button" value="Save your changes" onclick="add()" />
+  <br>
+  <br>
+  <input type="button" value="Save this quiz and start a new one" onclick="add()" />
+  <br>
+  <br>
+  <p style="font-size:14px; "><b>If you want to remove a question from the quiz, you can click on the question here and it will be removed from the quiz</b></p>
+  </div>
+
+  <div class="quizQuestions">
+    <h1>Test</h1>
+
+  </div>
   
+    
 </body>
 </html>
