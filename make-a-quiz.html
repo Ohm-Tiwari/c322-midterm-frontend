@@ -36,6 +36,57 @@
     <h1>Test</h1>
 
   </div>
+
+
+  <script>
+    let host = "http://localhost:8080";
+    let quizzes = [];
+    displayTheQuizzes();
+
+    async function getAll() {
+        let response = await fetch(host + "/quizzes");
+        let result = await response.json();
+        return result;
+    }
+
+    // async function displayTheQuizzes() {
+    //     if (quizzes.length == 0) {
+    //       quizzes = await getAll();
+    //     }
+
+    //     let list = document.getElementById("list");
+    //     list.innerHTML = "";
+
+    //     for (let quiz of quizzes) {
+    //       let div = document.createElement("div");
+    //       div.className = "card";
+    //       let innerHtml = `
+         
+    //     <img src="http://localhost:8080/quizzes/${question.id}/image" alt="question" style="width:100%">
+    //     <div class="container">
+    //       <h4><b>${question.id}</b></h4> 
+    //       <p>${question.description}</p>
+    //       <form>
+    //           <input type="radio" id="q${question.id}ptionA" name="q2Answer" value="A">
+    //           <label for="q${question.id}ptionA">${question.choices[0]}</label><br>
+
+    //           <input type="radio" id="q${question.id}ptionB" name="q2Answer" value="B">
+    //           <label for="q${question.id}ptionB">${question.choices[1]}</label><br>
+
+    //           <input type="radio" id="q${question.id}ptionC" name="q2Answer" value="C">
+    //           <label for="q${question.id}ptionC">${question.choices[2]}</label><br>       
+    //       </form> 
+    //     </div>
+     
+    //         `;
+    //       div.innerHTML = innerHtml;
+    //       list.appendChild(div);
+    //     }
+    //   }
+
+
+    
+  </script>
   
     
 </body>
