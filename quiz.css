@@ -30,7 +30,7 @@
 }
 
 /* Will be used to select the questions */
-.quizQuestions h1 {
+.quizQuestions {
     border: solid;
     display: inline-block;
     border-color: orange;
