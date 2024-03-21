@@ -15,29 +15,3 @@
     display: none;
 }
 
-/* Will be used for user inputs in quiz */
-.newQuiz {
-    border: solid;
-    display: inline-block;
-    text-align: justify;
-    float: right;
-    padding: 10px;
-    max-width: 250px;
-    margin: 10px;
-    border-color: orange;
-    border-width: 2px;
-    
-}
-
-/* Will be used to select the questions */
-.quizQuestions {
-    border: solid;
-    display: inline-block;
-    border-color: orange;
-    border-width: 2px;
-    width: 500px;
-    
-    
-    
-
-}

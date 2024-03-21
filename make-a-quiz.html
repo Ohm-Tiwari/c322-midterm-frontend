@@ -23,10 +23,10 @@
   <br>
   <label for="quizTitle">Quiz Title:</label>
   <input type="text" id="quizTitle" name="quizTitle"><br><br>
-  <input type="button" value="Save your changes" onclick="add()" />
+  <input type="button" value="Save your changes" onclick="saveQuiz()" />
   <br>
   <br>
-  <input type="button" value="Save this quiz and start a new one" onclick="add()" />
+  <input type="button" value="Save this quiz and start a new one" onclick="saveQuizandStartNew()" />
   <br>
   <br>
   <p style="font-size:14px; "><b>If you want to remove a question from the quiz, you can click on the question here and it will be removed from the quiz</b></p>
@@ -50,45 +50,48 @@
         return result;
     }
 
-    // async function displayTheQuizzes() {
-    //     if (quizzes.length == 0) {
-    //       quizzes = await getAll();
-    //     }
+    async function displayTheQuizzes() {
+        if (quizzes.length == 0) {
+          quizzes = await getAll();
+        }
 
-    //     let list = document.getElementById("list");
-    //     list.innerHTML = "";
+        let list = document.getElementById("list");
+        list.innerHTML = "";
 
-    //     for (let quiz of quizzes) {
-    //       let div = document.createElement("div");
-    //       div.className = "card";
-    //       let innerHtml = `
+        for (let quiz of quizzes) {
+          let div = document.createElement("div");
+          div.className = "card";
+          let innerHtml = `
          
-    //     <img src="http://localhost:8080/quizzes/${question.id}/image" alt="question" style="width:100%">
-    //     <div class="container">
-    //       <h4><b>${question.id}</b></h4> 
-    //       <p>${question.description}</p>
-    //       <form>
-    //           <input type="radio" id="q${question.id}ptionA" name="q2Answer" value="A">
-    //           <label for="q${question.id}ptionA">${question.choices[0]}</label><br>
+        <div class="container">
+          <h4><b>${question.id}</b></h4> 
+          <p>${question.description}</p>
+          <form>
+              <input type="radio" id="q${question.id}ptionA" name="q2Answer" value="A">
+              <label for="q${question.id}ptionA">${question.choices[0]}</label><br>
 
-    //           <input type="radio" id="q${question.id}ptionB" name="q2Answer" value="B">
-    //           <label for="q${question.id}ptionB">${question.choices[1]}</label><br>
+              <input type="radio" id="q${question.id}ptionB" name="q2Answer" value="B">
+              <label for="q${question.id}ptionB">${question.choices[1]}</label><br>
 
-    //           <input type="radio" id="q${question.id}ptionC" name="q2Answer" value="C">
-    //           <label for="q${question.id}ptionC">${question.choices[2]}</label><br>       
-    //       </form> 
-    //     </div>
+              <input type="radio" id="q${question.id}ptionC" name="q2Answer" value="C">
+              <label for="q${question.id}ptionC">${question.choices[2]}</label><br>       
+          </form> 
+        </div>
      
-    //         `;
-    //       div.innerHTML = innerHtml;
-    //       list.appendChild(div);
-    //     }
-    //   }
+            `;
+          div.innerHTML = innerHtml;
+          list.appendChild(div);
+        }
+      }
 
+      async function saveQuiz(){
 
-    
+      }
+
+      async function saveQuizandStartNew(){
+
+      }
+
   </script>
-  
-    
 </body>
 </html>
