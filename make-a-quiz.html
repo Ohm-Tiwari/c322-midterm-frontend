@@ -35,62 +35,74 @@
   <div class="questions">
     <h1>Test</h1>
     <p><b>Click on a question to add it to the quiz.</b></p>
-
   </div>
 
 
   <script>
     let host = "http://localhost:8080";
-    let quizzes = [];
-    displayTheQuizzes();
-
-    async function getAll() {
-        let response = await fetch(host + "/quizzes");
-        let result = await response.json();
-        return result;
+    let numQuestions = 0; 
+    let selectedQuestions = []; 
+    
+    function addQuestionToQuiz(questionId) {
+      numQuestions++;
+      selectedQuestions.push(questionId);
+      updateQuizInfo();
     }
 
-    async function displayTheQuizzes() {
-        if (quizzes.length == 0) {
-          quizzes = await getAll();
+    function removeQuestionFromQuiz(questionId) {
+      numQuestions--;
+      const index = selectedQuestions.indexOf(questionId);
+      if (index !== -1) {
+        selectedQuestions.splice(index, 1);
+      }
+      updateQuizInfo();
+    }
+
+    function updateQuizInfo() {
+      const quizInfo = document.getElementById('quizInfo');
+      quizInfo.textContent = `The New Quiz(${numQuestions} Questions)`;
+    }
+
+    async function saveQuiz() {
+      const quizTitle = document.getElementById('quizTitle').value;
+      const quizData = {
+        title: quizTitle,
+        questionIds: selectedQuestions,
+      };
+      try {
+        let method = 'POST';
+        const existingQuizId = localStorage.getItem('quizId');
+        if (existingQuizId) {
+          method = 'PUT';
+          quizData.id = parseInt(existingQuizId);
         }
+        
+        const response = await fetch(host + '/quizzes', {
+          method: method,
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(quizData),
+        });
 
-        let list = document.getElementById("list");
-        list.innerHTML = "";
-
-        for (let quiz of quizzes) {
-          let div = document.createElement("div");
-          div.className = "card";
-          let innerHtml = `
-         
-        <div class="container">
-          <h4><b>${question.id}</b></h4> 
-          <p>${question.description}</p>
-          <form>
-              <input type="radio" id="q${question.id}ptionA" name="q2Answer" value="A">
-              <label for="q${question.id}ptionA">${question.choices[0]}</label><br>
-
-              <input type="radio" id="q${question.id}ptionB" name="q2Answer" value="B">
-              <label for="q${question.id}ptionB">${question.choices[1]}</label><br>
-
-              <input type="radio" id="q${question.id}ptionC" name="q2Answer" value="C">
-              <label for="q${question.id}ptionC">${question.choices[2]}</label><br>       
-          </form> 
-        </div>
-     
-            `;
-          div.innerHTML = innerHtml;
-          list.appendChild(div);
+        if (response.ok) {
+          const responseData = await response.json();
+          localStorage.setItem('quizId', responseData.id);
+          alert('Quiz saved successfully!');
+        } else {
+          alert('Failed to save quiz.');
         }
+      } catch (error) {
+        console.error('Error saving quiz:', error);
+        alert('An error occurred while saving the quiz.');
       }
+    }
 
-      async function saveQuiz(){
+    async function saveQuizandStartNew() {
+      await saveQuiz(); 
+      location.reload(); 
+    }
 
-      }
-
-      async function saveQuizandStartNew(){
-
-      }
 
   </script>
 </body>
