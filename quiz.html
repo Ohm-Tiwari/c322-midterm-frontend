@@ -10,25 +10,14 @@
 </head>
 <body>
 
-  <div class="controls">
-    <input type="button" value="Previous" onclick="saveQuiz()" />
-    <p><b>(Question 2 out of 4)</b></p>
-    <input type="button" value="Next" onclick="saveQuiz()" />
+  <div class="card">
+    <div class="controls">
+      <input type="button" value="Previous" id="prevButton" onclick="previousQuestion()" />
+      <p id="questionCounter"><b></b></p>
+      <input type="button" value="Next" onclick="nextQuestion()" />
+    </div>
   </div>
 
-  <script>
-    function getQueryParam(param) {
-      const urlParams = new URLSearchParams(window.location.search);
-      return urlParams.get(param);
-    }
-
-    const quizTitle = getQueryParam('title');
-    const numQuestions = parseInt(getQueryParam('numQuestions'));
-
-    document.getElementById('quizTitle').textContent = `(${numQuestions} Questions)`;
-
-
-  </script>
   
 </body>
 </html>
