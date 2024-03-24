@@ -1,91 +1,47 @@
 .screen{
-    width: 40vw;
-    height: 24.7vw;
-    margin-left: 30vw;
-    margin-right: 30vw;
+  width: 40vw;
+  height: 24.7vw;
+  margin-left: 30vw;
+  margin-right: 30vw;
 }
 
 .controls {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
 .hide {
-    visibility: hidden;
-    display: none;
+  visibility: hidden;
+  display: none;
 }
 
-.flex {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-  }
-  
-  .quiz-card {
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    padding: 20px;
-    width: 200px;
-    cursor: pointer;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    transition: 0.3s;
-  }
-  
-  .quiz-title {
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 15px;
-  }
-  
-  .quiz-info {
-    font-size: 14px;
-    color: #777;
-  }
-  
-  .info {
-    margin-left: 40px;
-  }
-  
-  .quizzes {
-    margin-left: 40px;
-    margin-top: 40px;
-  }
-  
-  #quizInterface {
-    display: none;
-    text-align: center;
-    max-width: 600px;
-    margin: auto;
-  }
-  
-  #quizContent {
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    text-align: left;
-  }
-  
-  #quizContent img {
-    width: 400px;
-    margin-left: 40px;
-  }
-  
-  #navigationButtons {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
-  }
-  
-  .invisible {
-    visibility: hidden;
-  }
-  
-  #completedQuiz {
-    display: flex;
-    flex-direction: column;
-    margin-left: 40px;
-    margin-top: 40px;
-  }
-  
+.box {
+  width: 95%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+.up,
+.down {
+  height: 50%;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+  overflow: auto;
+}
+
+#nextButton,
+#submitButton,
+#previousButton {
+  display: none;
+}
+
+#navigationButtons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 
